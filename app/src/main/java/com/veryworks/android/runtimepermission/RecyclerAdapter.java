@@ -52,23 +52,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         holder.txtId.setText(contact.getId() + "");
         holder.txtName.setText(contact.getName());
         holder.txtTel.setText(contact.getTelOne());
-
-        // 3. 액션을 정의합니다. 리스너 종류를 세팅한다.
-        holder.btnCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (context.checkSelfPermission(Manifest.permission.CALL_PHONE)
-                            == PackageManager.PERMISSION_GRANTED) {
-                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + contact.getTelOne()));
-                        context.startActivity(intent);
-                    }
-                } else {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + contact.getTelOne()));
-                    context.startActivity(intent);
-                }
-            }
-        });
     }
 
     @Override
@@ -90,6 +73,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
             txtName = (TextView) itemView.findViewById(R.id.txtName);
             txtTel = (TextView) itemView.findViewById(R.id.txtTel);
             btnCall = (ImageButton) itemView.findViewById(R.id.btnCall);
+
+            // 3. 액션을 정의합니다. 리스너 종류를 세팅한다.
+            btnCall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (context.checkSelfPermission(Manifest.permission.CALL_PHONE)
+                                == PackageManager.PERMISSION_GRANTED) {
+                            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + txtTel.getText().toString()));
+                            context.startActivity(intent);
+                        }
+                    } else {
+                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + txtTel.getText().toString()));
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }
