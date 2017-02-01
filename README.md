@@ -2,7 +2,7 @@
 런타임권한 체크 및 전화번호 데이터 불러오기
 
 ## 런타임 권한 설정
-'''java
+```java
     // 0. 요청코드 세팅
     private final int REQ_CODE = 100;
 
@@ -46,10 +46,10 @@
             }
         }
     }
-'''
+```
 
 ## 컨텐트 리졸버 사용
-'''java
+```java
     // 1. 데이터에 접근하기위해 ContentResolver 를 불러온다.
     ContentResolver resolver = context.getContentResolver();
 
@@ -86,4 +86,4 @@
         // 6. 처리 후 커서를 닫아준다
         cursor.close();
     }
-'''
+```
