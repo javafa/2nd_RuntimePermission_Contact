@@ -58,7 +58,7 @@
     // 주소록 URI : ContactsContract.Contacts.CONTENT_URI
     //       * 주소록에서 전호번호를 가져오면 주소당 여러개의 전화번호가 존재할 수 있다
     //         HAS_PHONE_NUMBER : 전화번호가 있는지 확인하는 상수
-    Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+    Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
 
     // 3. 데이터에서 가져올 데이터 컬럼명을 String 배열에 담는다.
     //    데이터컬럼명은 Content Uri 의 패키지에 들어있다.
