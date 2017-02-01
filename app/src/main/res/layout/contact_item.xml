@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        cardview:cardCornerRadius="10dp"
+        android:layout_height="70dp"
+        android:id="@+id/cardView">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <TextView
+                android:text="No."
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtId"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtName"
+                android:layout_weight="4" />
+
+            <TextView
+                android:text="000-0000-0000"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTel"
+                android:layout_weight="7" />
+
+            <ImageButton
+                android:layout_height="50dp"
+                cardview:srcCompat="@android:drawable/stat_sys_phone_call"
+                android:id="@+id/btnCall"
+                android:scaleType="fitCenter"
+                android:layout_width="50dp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
