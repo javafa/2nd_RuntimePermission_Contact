@@ -37,6 +37,9 @@ public class DataLoader {
         };
 
         // 3. Content Resolver 로 쿼리한 데이터를 커서에 담는다.
+        // 전화번호 URI : ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+        // 주소록 URI : ContactsContract.Contacts.CONTENT_URI
+        //             HAS_PHONE_NUMBER : 전화번호가 있는지 확인하는 상수
         Cursor cursor = resolver.query( ContactsContract.CommonDataKinds.Phone.CONTENT_URI  // 데이터의 주소
                         , projections            // 가져올 데이터 컬럼명 배열
                         , null                   // 조건절에 들어가는 컬럼명들 지정
@@ -60,6 +63,9 @@ public class DataLoader {
 
                 datas.add(contact);
             }
+
+            // * 중요 : 사용 후 close 를 호출하지 않으면 메모리 누수가 발생할 수 있다.
+            cursor.close();
         }
     }
 }
